@@ -1,0 +1,69 @@
+# Module 1
+print("Welcome to the Regression Model")
+input("Title\n")
+A1 = input("Enter the name you want to assign to the variable X\n") # to ask for a heading for X variables
+H = list(map(float, input("Enter the values of the independent variables\n").split()))  # holding the values of X named list H
+h_len = len(H)
+print(A1 + "(X)\n")
+total1 = 0
+mean_001_h = 0
+for kk in H:                         # kk = holding values of list H
+    total1 += kk                     # total1 = has sum of list H
+    squ_01 = pow(total1, 2)
+    mean_001_h += kk
+    mean_h = mean_001_h/h_len        # mean_h = holds the mean of elements in the list H
+    print(kk)
+print("Summation of X =", total1)
+print("Square of X =", squ_01)
+print("Mean of X =", mean_h)
+print("\nX2\n")
+total2 = 0                            # total2 = sum of squared values of list H
+for numbers in H:                     # numbers = holding values of list H
+    squared = pow(numbers, 2)         # squared = holding squared values of list H
+    total2 += squared
+    print(squared)
+print("Summation of X2 =", total2)
+A2 = input("Enter the name you want to assign to the variable Y\n")  # to ask for a heading for Y variables
+T = list(map(float, input("Enter the values of the independent variables\n").split())) # holding the values of Y named list T
+T_len = len(T)
+print(A2 + "(Y)\n")
+total3 = 0
+mean_001_t = 0
+for aa in T:                       # aa = holding values of list T
+    total3 += aa                   # total3 = holding sun of list T
+    mean_001_t += aa
+    mean_t =  mean_001_t/T_len     #mean_t = holds the mean of elements in the list T
+    print(aa)
+print("Summation of Y =", total3)
+print("Mean of Y =", mean_t)
+print("\nY2\n")
+total4 = 0                          # total4 = holding the sum of squared values of list T
+for numero in T:                    # numero = holding values of list T for for looping
+    square = pow(numero, 2)         # square = holding squares of list T
+    total4 += square
+    print(square)
+print("Summation of Y2 =", total4)
+print("\nXY\n")
+total5 = 0                          # total5 = holding the sum of multiplication of X and Y values present in H and T respectively
+for x_val, y_val in zip(H,T):
+    multi = x_val * y_val           # multi = holding the multiplied values of H and T
+    total5 = total5 + multi
+    print(multi)
+print("Summation of XY =", total5)
+print("Congratulations!, Initial dependent and independent variables have been registered successfully:)\n")
+print("Working on the regression model.............\n")
+print("Using the default regression equation: Y = b0 + b1(X) + E(Epsilon)\n")
+print("Computing b1\n")
+b001 = total1 * total3/h_len
+b002 = total5 - b001
+boo3 = squ_01/h_len
+b004 = total2 - boo3
+b1 = b002/b004
+print("value for b1 =", b1)
+print("Computing b0......\n")
+print("Using the default equation: b0 = Y[mean] - b1(X)[mean]\n")
+b0 = mean_t - b1*mean_h
+b0_01 = round(b0, 4)
+print("Regression equation for your data is = " + "Y = " + str(b0_01) + "+" + str(b1) + "(X)" + "+ E\n")
+print("Y = ", b0_01)
+print("Danke fur den analysen :)")
